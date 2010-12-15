@@ -12,7 +12,7 @@
 // specific language governing permissions and limitations under the License.
 namespace hawkeye.Client
 {
-    using Magnum.Servers;
+    using Stact.ServerFramework;
     using StactStuff;
 
     public static class ResponseContextExtensions

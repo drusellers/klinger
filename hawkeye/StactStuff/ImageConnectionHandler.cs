@@ -1,10 +1,10 @@
 ﻿namespace hawkeye.Client
 {
     using System.Linq;
-    using Magnum.Channels;
     using Magnum.Extensions;
-    using Magnum.Fibers;
-    using Magnum.Servers;
+    using Stact;
+    using Stact.Internal;
+    using Stact.ServerFramework;
 
     public class ImageConnectionHandler :
         PatternMatchConnectionHandler
@@ -30,7 +30,7 @@
 
             public ImageChannel()
             {
-                _fiber = new ThreadPoolFiber();
+                _fiber = new PoolFiber();
             }
 
             public void Send(ConnectionContext context)
@@ -75,7 +75,7 @@
 
             public CssChannel()
             {
-                _fiber = new ThreadPoolFiber();
+                _fiber = new PoolFiber();
             }
 
             public void Send(ConnectionContext context)

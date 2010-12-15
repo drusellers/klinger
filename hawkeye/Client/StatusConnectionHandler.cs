@@ -13,9 +13,9 @@
 namespace hawkeye.Client
 {
     using System.Net.Mime;
-    using Magnum.Channels;
-    using Magnum.Fibers;
-    using Magnum.Servers;
+    using Stact.Internal;
+    using Stact.ServerFramework;
+    using Stact;
 
     public class StatusConnectionHandler :
         PatternMatchConnectionHandler
@@ -43,7 +43,7 @@ namespace hawkeye.Client
             public StatusChannel(HealthRepository repo)
             {
                 _repo = repo;
-                _fiber = new ThreadPoolFiber();
+                _fiber = new PoolFiber();
             }
 
             public void Send(ConnectionContext context)

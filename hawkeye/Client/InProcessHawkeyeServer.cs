@@ -13,9 +13,9 @@
 namespace hawkeye.Client
 {
     using System;
-    using Magnum.Channels;
-    using Magnum.Fibers;
-    using Magnum.Servers;
+    using Stact.Internal;
+    using Stact.ServerFramework;
+    using Stact;
 
     public class InProcessHawkeyeServer
     {
@@ -38,7 +38,7 @@ namespace hawkeye.Client
 
 
             ServerUri = new UriBuilder("http","localhost",_port, "hawkeye").Uri;
-            _server = new HttpServer(ServerUri, new ThreadPoolFiber(), _input, new PatternMatchConnectionHandler[]
+            _server = new HttpServer(ServerUri, new PoolFiber(), _input, new PatternMatchConnectionHandler[]
                                                                                    {
                                                                                        new VersionConnectionHandler(),
                                                                                        new StatusConnectionHandler(_repo),
