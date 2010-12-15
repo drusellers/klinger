@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<buildInfo>
+  <projectName>Topshelf</projectName>
+  <companyName>CFT &amp; ACM</companyName>
+  <versionMajor>2</versionMajor>
+  <versionMinor>1</versionMinor>
+  <versionPatch>0</versionPatch>
+  <buildNumber>85</buildNumber>
+  <revision>0</revision>
+  <version>2.1.0.0</version>
+  <repositoryPath>git://github.com/Topshelf/Topshelf.git</repositoryPath>
+  <microsoftNetFramework>net-3.5</microsoftNetFramework>
+  <msbuildConfiguration>Release</msbuildConfiguration>
+  <msbuildPlatform>Any CPU</msbuildPlatform>
+  <builtWith>UppercuT v. 1.0.3.0</builtWith>
+</buildInfo>
