@@ -1,4 +1,4 @@
-﻿// Copyright 2007-2010 The Apache Software Foundation.
+// Copyright 2007-2010 The Apache Software Foundation.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 // this file except in compliance with the License. You may obtain a copy of the 
@@ -12,10 +12,15 @@
 // specific language governing permissions and limitations under the License.
 namespace hawkeye
 {
-    public interface Vote
+    using Client;
+
+    public class VoteBundle
     {
-        void Healthy();
-        void Warning(string reason);
-        void Fatal(string reason);
+        public VoteBundle(Vote[] votes)
+        {
+            Votes = votes;
+        }
+
+        public Vote[] Votes { get; private set; }
     }
 }

@@ -19,15 +19,15 @@ namespace hawkeye.StactStuff
     using Stact.Internal;
     using Stact.ServerFramework;
 
-    public class ImageConnectionHandler :
+    public class CssConnectionHandler :
         PatternMatchConnectionHandler
     {
-        readonly ImageChannel _statusChannel;
+        readonly CssChannel _statusChannel;
 
-        public ImageConnectionHandler() :
-            base(".png$", "GET")
+        public CssConnectionHandler() :
+            base(".css$", "GET")
         {
-            _statusChannel = new ImageChannel();
+            _statusChannel = new CssChannel();
         }
 
         protected override Channel<ConnectionContext> CreateChannel(ConnectionContext context)
@@ -36,12 +36,12 @@ namespace hawkeye.StactStuff
         }
 
 
-        class ImageChannel :
+        class CssChannel :
             Channel<ConnectionContext>
         {
             readonly Fiber _fiber;
 
-            public ImageChannel()
+            public CssChannel()
             {
                 _fiber = new PoolFiber();
             }
@@ -51,9 +51,9 @@ namespace hawkeye.StactStuff
                 _fiber.Add(() =>
                 {
                     string localPath = context.Request.Url.LocalPath;
-                    string imageName = localPath.Split('/').Last();
-                    context.Response.ContentType = "image/png";
-                    using (Stream str = GetType().Assembly.GetManifestResourceStream("hawkeye.images." + imageName))
+                    string cssName = localPath.Split('/').Last();
+                    context.Response.ContentType = "text/css";
+                    using (Stream str = GetType().Assembly.GetManifestResourceStream("hawkeye.styles." + cssName))
                     {
                         byte[] buff = str.ReadToEnd();
                         context.Response.OutputStream.Write(buff, 0, buff.Length);

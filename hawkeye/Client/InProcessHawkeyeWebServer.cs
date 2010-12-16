@@ -16,15 +16,16 @@ namespace hawkeye.Client
     using Stact.Internal;
     using Stact.ServerFramework;
     using Stact;
+    using StactStuff;
 
-    public class InProcessHawkeyeServer
+    public class InProcessHawkeyeWebServer
     {
         static ChannelAdapter _input;
         static HttpServer _server;
         readonly int _port;
         HealthRepository _repo;
 
-        public InProcessHawkeyeServer(int port, HealthRepository repo)
+        public InProcessHawkeyeWebServer(int port, HealthRepository repo)
         {
             _port = port;
             _repo = repo;

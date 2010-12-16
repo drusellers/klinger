@@ -12,7 +12,9 @@
 // specific language governing permissions and limitations under the License.
 namespace hawkeye.Client
 {
+    using System;
     using System.Collections.Generic;
+    using Magnum.Reflection;
 
     public class HealthRepository
     {
@@ -22,6 +24,11 @@ namespace hawkeye.Client
         public void AddCheck<THealthCheck>() where THealthCheck : EnvironmentValidator, new()
         {
             _validators.Add(new THealthCheck());
+        }
+
+        public void AddCheck(Type t)
+        {
+            _validators.Add(FastActivator.Create(t) as EnvironmentValidator);
         }
 
         public ValidationVote[] TakeTemperature()

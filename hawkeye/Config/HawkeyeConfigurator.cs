@@ -17,7 +17,8 @@ namespace hawkeye.Config
 
     public static class HawkeyeConfigurator
     {
-        static InProcessHawkeyeServer _server;
+        static InProcessHawkeyeWebServer _webServer;
+        static InProcessHawkeyeScheduleServer _scheduleServer;
         static HealthRepository _repository;
 
         public static void Configure(Action<HawkeyeConfiguration> action)
@@ -27,13 +28,21 @@ namespace hawkeye.Config
             var b = new BackingConfigurationObject(_repository);
             action(b);
 
-            if (b.ShouldHostInProcess)
+            if (b.ShouldHostWebServerInProcess)
             {
-                _server = new InProcessHawkeyeServer(b.Port, _repository);
-                _server.Start();
+                _webServer = new InProcessHawkeyeWebServer(b.Port, _repository);
+                _webServer.Start();
             }
 
-            //how to stop?
+            if (b.ShouldRunScheduler)
+            {
+                _scheduleServer = new InProcessHawkeyeScheduleServer(_repository, b.SchedulerDelay, b.SchedulerInterval);
+                
+                _scheduleServer.OnFatal(b.ErrorAction);
+                _scheduleServer.OnWarning(b.WarningAction);
+                _scheduleServer.Start();
+            }
+
         }
     }
 }

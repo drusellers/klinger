@@ -13,7 +13,7 @@
 namespace hawkeye.Client
 {
     public class ValidationVote :
-        Vote
+        Ballot, Vote
     {
         public ValidationVote(string system)
         {
@@ -24,19 +24,19 @@ namespace hawkeye.Client
         public string Reason { get; private set; }
         public string System { get; private set; }
 
-        void Vote.Healthy()
+        void Ballot.Healthy()
         {
             State = HealthState.Healthy;
             Reason = "Service is operating normally.";
         }
 
-        void Vote.Warning(string reason)
+        void Ballot.Warning(string reason)
         {
             State = HealthState.Warning;
             Reason = reason;
         }
 
-        void Vote.Fatal(string reason)
+        void Ballot.Fatal(string reason)
         {
             State = HealthState.Fatal;
             Reason = reason;

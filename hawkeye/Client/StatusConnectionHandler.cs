@@ -12,10 +12,10 @@
 // specific language governing permissions and limitations under the License.
 namespace hawkeye.Client
 {
-    using System.Net.Mime;
     using Stact.Internal;
     using Stact.ServerFramework;
     using Stact;
+    using StactStuff;
 
     public class StatusConnectionHandler :
         PatternMatchConnectionHandler

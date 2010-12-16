@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Magnum, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\magnum\Magnum.dll</HintPath>
+    </Reference>
     <Reference Include="Stact">
       <HintPath>..\lib\stact\Stact.dll</HintPath>
     </Reference>

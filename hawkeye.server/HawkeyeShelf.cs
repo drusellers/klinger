@@ -17,12 +17,12 @@ namespace hawkeye.server.shelf
     using Topshelf.Shelving;
 
     public class HawkeyeShelf :
-        Bootstrapper<InProcessHawkeyeServer>
+        Bootstrapper<InProcessHawkeyeWebServer>
     {
-        public void InitializeHostedService(IServiceConfigurator<InProcessHawkeyeServer> cfg)
+        public void InitializeHostedService(IServiceConfigurator<InProcessHawkeyeWebServer> cfg)
         {
             var repo = new HealthRepository();
-            cfg.HowToBuildService(name => new InProcessHawkeyeServer(8008,repo));
+            cfg.HowToBuildService(name => new InProcessHawkeyeWebServer(8008,repo));
             cfg.WhenStarted(s => s.Start());
             cfg.WhenStopped(s => s.Stop());
         }

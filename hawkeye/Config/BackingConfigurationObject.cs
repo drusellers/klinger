@@ -12,7 +12,10 @@
 // specific language governing permissions and limitations under the License.
 namespace hawkeye.Config
 {
+    using System;
     using Client;
+    using Magnum.Extensions;
+    using Magnum.TypeScanning;
 
     public class BackingConfigurationObject :
         HawkeyeConfiguration
@@ -24,19 +27,64 @@ namespace hawkeye.Config
             _repository = repository;
         }
 
+        public void RegisterAllValidatorsInAssembly<T>()
+        {
+            var types = TypeScanner.Scan(cfg =>
+            {
+                cfg.AddAllTypesOf<EnvironmentValidator>();
+                cfg.AssemblyContainingType<T>();
+            });
+            types.Each(_repository.AddCheck);
+        }
+
         public void RegisterValidator<TValidator>() where TValidator : EnvironmentValidator, new()
         {
             _repository.AddCheck<TValidator>();
         }
 
-        public void HostInProcess(int port)
+        public void RegisterValidator(Type t)
         {
-            ShouldHostInProcess = true;
+            _repository.AddCheck(t);
+        }
+
+        public void HostWebServerInProcess(int port)
+        {
+            ShouldHostWebServerInProcess = true;
             Port = port;
         }
 
+        public void ScheduleValidations(TimeSpan interval)
+        {
+            ScheduleValidations(5.Seconds(), interval);
+        }
+
+        public void ScheduleValidations(TimeSpan delayInterval, TimeSpan interval)
+        {
+            ShouldRunScheduler = true;
+            SchedulerInterval = interval;
+            SchedulerDelay = delayInterval;
+        }
+
+        public void OnWarning(Action<VoteBundle> action)
+        {
+            WarningAction = action;
+        }
+
+
+        public void OnFatal(Action<VoteBundle> action)
+        {
+            ErrorAction = action;
+        }
+
+
+
         public int Port { get; private set; }
 
-        public bool ShouldHostInProcess { get; private set; }
+        public bool ShouldRunScheduler { get; private set; }
+        public TimeSpan SchedulerInterval { get; private set; }
+        public TimeSpan SchedulerDelay { get; private set; }
+        public bool ShouldHostWebServerInProcess { get; private set; }
+        public Action<VoteBundle> WarningAction { get; private set; }
+        public Action<VoteBundle> ErrorAction { get; private set; }
     }
 }

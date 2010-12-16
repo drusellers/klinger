@@ -55,9 +55,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StactStuff\HawkeyeInformation.cs" />
+    <Compile Include="Client\InProcessHawkeyeScheduleServer.cs" />
+    <Compile Include="Client\HawkeyeInformation.cs" />
+    <Compile Include="Client\Vote.cs" />
+    <Compile Include="StactStuff\CssConnectionHandler.cs" />
     <Compile Include="StactStuff\ImageConnectionHandler.cs" />
-    <Compile Include="Client\ResponseContextExtensions.cs" />
+    <Compile Include="StactStuff\ResponseContextExtensions.cs" />
     <Compile Include="Config\BackingConfigurationObject.cs" />
     <Compile Include="EnvironmentValidator.cs" />
     <Compile Include="Config\HawkeyeConfiguration.cs" />
@@ -68,8 +71,9 @@
     <Compile Include="StactStuff\SparkRender.cs" />
     <Compile Include="Client\StatusConnectionHandler.cs" />
     <Compile Include="Client\ValidationVote.cs" />
-    <Compile Include="Client\InProcessHawkeyeServer.cs" />
-    <Compile Include="Vote.cs" />
+    <Compile Include="Client\InProcessHawkeyeWebServer.cs" />
+    <Compile Include="Ballot.cs" />
+    <Compile Include="VoteBundle.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="views\status.html">

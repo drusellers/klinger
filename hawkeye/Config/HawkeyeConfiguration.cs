@@ -12,9 +12,16 @@
 // specific language governing permissions and limitations under the License.
 namespace hawkeye.Config
 {
+    using System;
+
     public interface HawkeyeConfiguration
     {
         void RegisterValidator<TValidator>() where TValidator : EnvironmentValidator, new();
-        void HostInProcess(int port);
+        void HostWebServerInProcess(int port);
+        void ScheduleValidations(TimeSpan interval);
+        void ScheduleValidations(TimeSpan delayInterval, TimeSpan interval);
+        void OnWarning(Action<VoteBundle> action);
+        void OnFatal(Action<VoteBundle> action);
+        void RegisterAllValidatorsInAssembly<T>();
     }
 }
