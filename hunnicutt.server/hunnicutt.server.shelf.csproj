@@ -48,11 +48,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HawkeyeShelf.cs" />
+    <Compile Include="hunnicuttShelf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\hawkeye\hawkeye.csproj">
+    <ProjectReference Include="..\hunnicutt\hunnicutt.csproj">
       <Project>{A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4}</Project>
       <Name>hawkeye</Name>
     </ProjectReference>

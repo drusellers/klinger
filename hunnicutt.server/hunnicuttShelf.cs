@@ -16,7 +16,7 @@ namespace hawkeye.server.shelf
     using Topshelf.Configuration.Dsl;
     using Topshelf.Shelving;
 
-    public class HawkeyeShelf :
+    public class HunnicuttShelf :
         Bootstrapper<InProcessHawkeyeWebServer>
     {
         public void InitializeHostedService(IServiceConfigurator<InProcessHawkeyeWebServer> cfg)

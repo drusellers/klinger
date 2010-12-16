@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hawkeye", "hawkeye\hawkeye.csproj", "{A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hunnicutt", "hunnicutt\hunnicutt.csproj", "{A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hawkeye.server.shelf", "hawkeye.server\hawkeye.server.shelf.csproj", "{361A3E31-49D6-4B15-980E-E884293FC200}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hunnicutt.server.shelf", "hunnicutt.server\hunnicutt.server.shelf.csproj", "{361A3E31-49D6-4B15-980E-E884293FC200}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hawkeye.specs", "hawkeye.specs\hawkeye.specs.csproj", "{5F1D6F3F-9D8D-4C90-9133-5205B0B0865D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hunnicutt.specs", "hunnicutt.specs\hunnicutt.specs.csproj", "{5F1D6F3F-9D8D-4C90-9133-5205B0B0865D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication", "SampleApplication\SampleApplication.csproj", "{FA9B839A-97BB-4D5C-AA09-784253C868A1}"
 EndProject
