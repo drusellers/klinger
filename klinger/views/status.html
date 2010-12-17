@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+    <title>Klinger Service Health Dashboard</title>
+    
+    <link href="screen.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="print.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="ie.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="color.css" type="text/css" rel="stylesheet" media="screen" />
+</head>
+<body>
+    <div>
+        <div class="container" id="body">
+            <div class="span-24">
+                <h1>Klinger's Report!</h1>
+                <h4>Current Status - ${Model.CurrentTime}</h4>
+
+	            <table>
+                    <caption>Your health checks.</caption>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Current Status</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+	                    <tr each="var vote in Model.Votes">
+                            <td width="10%"><img src="${vote.State.ToString().ToLower()}.png" /></td>
+	                        <td width="45%">${vote.System}</td>
+                            <td width="45%">${vote.Reason}</td>
+	                    </tr>
+                    </tbody>
+	            </table>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="span-24">
+                <p>Klinger Version: ${Model.Information.Version}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

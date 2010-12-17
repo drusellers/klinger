@@ -13,15 +13,15 @@
 namespace SampleApplication
 {
     using System;
-    using hawkeye;
-    using hawkeye.Config;
+    using klinger;
+    using klinger.Config;
     using Magnum.Extensions;
 
     internal class Program
     {
         static void Main(string[] args)
         {
-            HawkeyeConfigurator.Configure(cfg =>
+            KlingerConfigurator.Configure(cfg =>
             {
                 //now with type scanning
                 cfg.RegisterAllValidatorsInAssembly<MyCheck>();
@@ -50,7 +50,7 @@ namespace SampleApplication
                 });
 
                 //Coming Soon
-                //cfg.ForwardTo(new Uri("http://localhost:8008/hawkeye/report"));
+                //cfg.ForwardTo(new Uri("http://localhost:8008/klinger/report"));
             });
 
             Console.ReadKey(true);
