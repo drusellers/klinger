@@ -13,6 +13,7 @@
 namespace SampleApplication
 {
     using System;
+    using System.ServiceProcess;
     using klinger;
     using klinger.Config;
     using Magnum.Extensions;
@@ -72,6 +73,22 @@ namespace SampleApplication
         }
     }
 
+    public class LocalServiceValidator : 
+        EnvironmentValidator
+    {
+        public void Vote(Ballot ballot)
+        {
+            using(var c = new ServiceController("MSMQ"))
+            {
+                if(c.Status != ServiceControllerStatus.Running)
+                {
+                    ballot.Fatal("MSMQ is not running.");
+                    return;
+                }
+                ballot.Healthy();
+            }
+        }
+    }
     public class CheckTwo :
         EnvironmentValidator
     {

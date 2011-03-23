@@ -22,7 +22,7 @@ namespace klinger.Client
     {
         readonly StatusChannel _statusChannel;
 
-        public StatusConnectionHandler(HealthRepository repo) :
+        public StatusConnectionHandler(EnvironmentValidatorRepository repo) :
             base("^/status", "GET")
         {
             _statusChannel = new StatusChannel(repo);
@@ -38,9 +38,9 @@ namespace klinger.Client
             Channel<ConnectionContext>
         {
             readonly Fiber _fiber;
-            readonly HealthRepository _repo;
+            readonly EnvironmentValidatorRepository _repo;
 
-            public StatusChannel(HealthRepository repo)
+            public StatusChannel(EnvironmentValidatorRepository repo)
             {
                 _repo = repo;
                 _fiber = new PoolFiber();

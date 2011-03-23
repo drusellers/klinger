@@ -16,7 +16,7 @@ namespace klinger.Client
     using System.Collections.Generic;
     using Magnum.Reflection;
 
-    public class HealthRepository
+    public class EnvironmentValidatorRepository
     {
         readonly List<EnvironmentValidator> _validators = new List<EnvironmentValidator>();
 

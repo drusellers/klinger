@@ -19,11 +19,11 @@ namespace klinger.Config
     {
         static InProcessKlingerWebServer _webServer;
         static InProcessKlingerScheduleServer _scheduleServer;
-        static HealthRepository _repository;
+        static EnvironmentValidatorRepository _repository;
 
         public static void Configure(Action<KlingerConfiguration> action)
         {
-            _repository = new HealthRepository();
+            _repository = new EnvironmentValidatorRepository();
 
             var b = new BackingConfigurationObject(_repository);
             action(b);

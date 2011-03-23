@@ -19,7 +19,7 @@ namespace klinger.StactStuff
     {
         static readonly SparkRender _render = new SparkRender();
 
-        public static void RenderSparkView(this ResponseContext cxt, HealthRepository repo, string template)
+        public static void RenderSparkView(this ResponseContext cxt, EnvironmentValidatorRepository repo, string template)
         {
             string output = _render.Render("status.html", repo.TakeTemperature(), new KlingerInformation());
             cxt.WriteHtml(output);

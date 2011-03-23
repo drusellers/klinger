@@ -20,19 +20,20 @@ namespace klinger.Client
 
     public class InProcessKlingerScheduleServer
     {
-        Scheduler _scheduler;
+        readonly Scheduler _scheduler;
         readonly Fiber _fiber;
-        readonly HealthRepository _repository;
+        readonly EnvironmentValidatorRepository _repository;
         readonly TimeSpan _schedulerDelay;
         readonly TimeSpan _schedulerInterval;
         public UntypedChannel EventChannel;
 
-        public InProcessKlingerScheduleServer(HealthRepository repository, TimeSpan schedulerDelay,
+        public InProcessKlingerScheduleServer(EnvironmentValidatorRepository repository, TimeSpan schedulerDelay,
                                               TimeSpan schedulerInterval)
         {
             EventChannel = new ChannelAdapter();
 
             _fiber = new PoolFiber();
+            _scheduler = new TimerScheduler(_fiber);
             _repository = repository;
             _schedulerDelay = schedulerDelay;
             _schedulerInterval = schedulerInterval;
@@ -62,7 +63,6 @@ namespace klinger.Client
 
         public void Start()
         {
-            _scheduler = new TimerScheduler(_fiber);
             _scheduler.Schedule(_schedulerDelay, _schedulerInterval, _fiber, () =>
             {
                 var x = _repository.TakeTemperature();

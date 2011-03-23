@@ -8,20 +8,20 @@
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="static" priority="2" />
+      <Item value="static" priority="5" />
       <Item value="Stact" priority="1" />
       <Item value="Scheduler`0" priority="0" />
       <Item value="_server" priority="0" />
-      <Item value="new" priority="10" />
+      <Item value="new" priority="21" />
       <Item value="ActorFactory`0" priority="1" />
-      <Item value="var" priority="4" />
+      <Item value="var" priority="9" />
       <Item value="_scheduler" priority="2" />
       <Item value="Internal" priority="0" />
       <Item value="TimerScheduler`0" priority="0" />
       <Item value="PoolFiber`0" priority="2" />
       <Item value="_repository" priority="2" />
       <Item value="cfg" priority="3" />
-      <Item value="public" priority="9" />
+      <Item value="public" priority="20" />
       <Item value="ShouldRunScheduler" priority="0" />
       <Item value="true" priority="0" />
       <Item value="TimeSpan`0" priority="1" />
@@ -31,8 +31,8 @@
       <Item value="if" priority="6" />
       <Item value="b" priority="7" />
       <Item value="Fiber`0" priority="0" />
-      <Item value="_fiber" priority="2" />
-      <Item value="void" priority="4" />
+      <Item value="_fiber" priority="3" />
+      <Item value="void" priority="8" />
       <Item value="HealthRepository`0" priority="0" />
       <Item value="InProcessHawkeyeScheduleServer`0" priority="0" />
       <Item value="_scheduleServer" priority="4" />
@@ -54,30 +54,52 @@
       <Item value="Fatal" priority="1" />
       <Item value="OnError" priority="0" />
       <Item value="allVotes" priority="0" />
-      <Item value="UntypedChannel`0" priority="0" />
+      <Item value="UntypedChannel`0" priority="2" />
       <Item value="_eventChannel" priority="0" />
       <Item value="Magnum" priority="2" />
       <Item value="interface" priority="0" />
       <Item value="HealthState`0" priority="0" />
-      <Item value="string" priority="1" />
-      <Item value="VoteBundle`0" priority="5" />
-      <Item value="int" priority="0" />
-      <Item value="EventChannel" priority="1" />
-      <Item value="c" priority="0" />
-      <Item value="ChannelAdapter`0" priority="0" />
+      <Item value="string" priority="3" />
+      <Item value="VoteBundle`0" priority="6" />
+      <Item value="int" priority="4" />
+      <Item value="EventChannel" priority="2" />
+      <Item value="c" priority="1" />
+      <Item value="ChannelAdapter`0" priority="1" />
       <Item value="vb" priority="2" />
-      <Item value="return" priority="1" />
+      <Item value="return" priority="9" />
       <Item value="MyCheck`0" priority="0" />
       <Item value="TypeScanning" priority="0" />
       <Item value="Scanner`0" priority="0" />
       <Item value="scanner" priority="1" />
       <Item value="T`0" priority="1" />
       <Item value="TypeScanner`0" priority="0" />
-      <Item value="EnvironmentValidator`0" priority="1" />
+      <Item value="EnvironmentValidator`0" priority="2" />
       <Item value="Type`0" priority="0" />
       <Item value="types" priority="0" />
       <Item value="_validators" priority="0" />
       <Item value="as" priority="0" />
+      <Item value="class" priority="2" />
+      <Item value="HealthVoteRepository`0" priority="0" />
+      <Item value="Uri" priority="3" />
+      <Item value="Relative" priority="1" />
+      <Item value="Uri`0" priority="2" />
+      <Item value="Root`0" priority="2" />
+      <Item value="UriBuilder`0" priority="2" />
+      <Item value="host" priority="0" />
+      <Item value="port" priority="0" />
+      <Item value="ub" priority="5" />
+      <Item value="Environment`0" priority="1" />
+      <Item value="Dashboard`0" priority="1" />
+      <Item value="name" priority="0" />
+      <Item value="UrlBuilding`0" priority="0" />
+      <Item value="Ballot`0" priority="0" />
+      <Item value="System" priority="1" />
+      <Item value="Management" priority="0" />
+      <Item value="ServiceProcess" priority="0" />
+      <Item value="ServiceController`0" priority="0" />
+      <Item value="using" priority="0" />
+      <Item value="Running" priority="0" />
+      <Item value="ballot" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Stact.ActorFactory">
       <Item value="Create`1" priority="0" />
@@ -107,7 +129,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Console">
       <Item value="WriteLine`0" priority="2" />
-      <Item value="Write`0" priority="0" />
+      <Item value="Write`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:hawkeye.Client.ValidationVote">
       <Item value="System" priority="1" />
@@ -155,61 +177,89 @@
     <ItemStatistics item="Qualified:@Magnum.Reflection.FastActivator">
       <Item value="Create`0" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:System.UriBuilder">
+      <Item value="Uri" priority="2" />
+      <Item value="Path" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Environment">
+      <Item value="MachineName" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@klinger.Urls">
+      <Item value="Client`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.ServiceProcess.ServiceController">
+      <Item value="GetServices`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.ServiceProcess.ServiceController">
+      <Item value="Status" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:klinger.Ballot">
+      <Item value="Healthy`0" priority="0" />
+      <Item value="Fatal`0" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:StactStuff/f:ResponseContextExtensions.cs" caret="1132" fromTop="26" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:StatusConnectionHandler.cs" caret="665" fromTop="13" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:HawkeyeInformation.cs" caret="24" fromTop="0" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeWebServer.cs" caret="0" fromTop="0" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:StactStuff/f:ImageConnectionHandler.cs" caret="2228" fromTop="64" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:StactStuff/f:CssConnectionHandler.cs" caret="1257" fromTop="20" />
       <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:HealthState.cs" caret="0" fromTop="0" />
       <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:Ballot.cs" caret="679" fromTop="13" />
       <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:Vote.cs" caret="650" fromTop="11" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:ValidationVote.cs" caret="1421" fromTop="37" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:ValidationVote.cs" caret="1422" fromTop="37" />
       <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:EnvironmentValidator.cs" caret="734" fromTop="15" />
       <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:VoteBundle.cs" caret="819" fromTop="22" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:HawkeyeConfigurator.cs" caret="1194" fromTop="29" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:HealthRepository.cs" caret="1106" fromTop="28" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="1514" fromTop="37" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:HawkeyeConfiguration.cs" caret="723" fromTop="15" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="2524" fromTop="26" />
-      <File id="361A3E31-49D6-4B15-980E-E884293FC200/f:hunnicuttShelf.cs" caret="784" fromTop="17" />
-      <File id="5F1D6F3F-9D8D-4C90-9133-5205B0B0865D/f:Class1.cs" caret="118" fromTop="5" />
-      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="0" fromTop="0" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:views/f:status.html" caret="340" fromTop="6" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:KlingerInformation.cs" caret="284" fromTop="10" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:KlingerConfiguration.cs" caret="711" fromTop="15" />
+      <File id="5F1D6F3F-9D8D-4C90-9133-5205B0B0865D/d:Properties/f:AssemblyInfo.cs" caret="296" fromTop="5" />
+      <File id="361A3E31-49D6-4B15-980E-E884293FC200/d:Properties/f:AssemblyInfo.cs" caret="547" fromTop="11" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Properties/f:AssemblyInfo.cs" caret="1127" fromTop="11" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:EnvironmentValidatorRepository.cs" caret="781" fromTop="17" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="0" fromTop="0" />
+      <File id="361A3E31-49D6-4B15-980E-E884293FC200/f:klingerShelf.cs" caret="0" fromTop="0" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:KlingerConfigurator.cs" caret="0" fromTop="0" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="492" fromTop="22" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessKlingerScheduleServer.cs" caret="870" fromTop="9" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:HealthVoteRepository.cs" caret="159" fromTop="6" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:Urls.cs" caret="39" fromTop="1" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:StactStuff/f:CssConnectionHandler.cs" caret="822" fromTop="12" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:StactStuff/f:ImageConnectionHandler.cs" caret="822" fromTop="8" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessKlingerWebServer.cs" caret="1929" fromTop="33" />
+      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="2415" fromTop="65" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:StatusConnectionHandler.cs" caret="805" fromTop="7" />
+      <File id="5F1D6F3F-9D8D-4C90-9133-5205B0B0865D/f:UrlBuilding.cs" caret="352" fromTop="18" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:StactStuff/f:ResponseContextExtensions.cs" caret="1136" fromTop="25" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:StactStuff/f:SparkRender.cs" caret="1577" fromTop="23" />
     </RecentFiles>
     <RecentEdits>
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:ValidationVote.cs" caret="1422" fromTop="38" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:Vote.cs" caret="803" fromTop="19" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:EnvironmentValidator.cs" caret="734" fromTop="15" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:VoteBundle.cs" caret="863" fromTop="24" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:HawkeyeConfiguration.cs" caret="678" fromTop="13" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="2558" fromTop="34" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="2203" fromTop="20" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="2322" fromTop="26" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="2809" fromTop="25" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="680" fromTop="6" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:HawkeyeConfigurator.cs" caret="1660" fromTop="17" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="1323" fromTop="9" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="1830" fromTop="21" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="2191" fromTop="30" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:HawkeyeConfigurator.cs" caret="697" fromTop="5" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="1624" fromTop="27" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessHawkeyeScheduleServer.cs" caret="1995" fromTop="38" />
-      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="1786" fromTop="31" />
-      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="1368" fromTop="23" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:HawkeyeConfigurator.cs" caret="1194" fromTop="29" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:HawkeyeConfiguration.cs" caret="1120" fromTop="23" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="678" fromTop="13" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="1608" fromTop="39" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="1328" fromTop="30" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:HealthRepository.cs" caret="1183" fromTop="29" />
-      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:BackingConfigurationObject.cs" caret="1514" fromTop="37" />
-      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="1472" fromTop="24" />
-      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="1677" fromTop="31" />
-      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="954" fromTop="12" />
-      <File id="361A3E31-49D6-4B15-980E-E884293FC200/f:hunnicuttShelf.cs" caret="784" fromTop="17" />
+      <File id="361A3E31-49D6-4B15-980E-E884293FC200/f:klingerShelf.cs" caret="789" fromTop="17" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:KlingerInformation.cs" caret="86" fromTop="3" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Config/f:KlingerConfiguration.cs" caret="711" fromTop="15" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Properties/f:AssemblyInfo.cs" caret="925" fromTop="18" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Properties/f:AssemblyInfo.cs" caret="1127" fromTop="23" />
+      <File id="361A3E31-49D6-4B15-980E-E884293FC200/d:Properties/f:AssemblyInfo.cs" caret="547" fromTop="11" />
+      <File id="5F1D6F3F-9D8D-4C90-9133-5205B0B0865D/d:Properties/f:AssemblyInfo.cs" caret="545" fromTop="11" />
+      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="1946" fromTop="15" />
+      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="1610" fromTop="0" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:EnvironmentValidatorRepository.cs" caret="781" fromTop="17" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="492" fromTop="12" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="492" fromTop="25" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="206" fromTop="9" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="483" fromTop="22" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="370" fromTop="16" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="128" fromTop="6" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessKlingerScheduleServer.cs" caret="2386" fromTop="38" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessKlingerScheduleServer.cs" caret="1399" fromTop="9" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Client/f:InProcessKlingerScheduleServer.cs" caret="870" fromTop="3" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:OutOfProcessKlingerWebServer.cs" caret="493" fromTop="24" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/d:Server/f:HealthVoteRepository.cs" caret="170" fromTop="6" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:Urls.cs" caret="617" fromTop="23" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:Urls.cs" caret="110" fromTop="7" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:Urls.cs" caret="616" fromTop="24" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:Urls.cs" caret="438" fromTop="17" />
+      <File id="A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4/f:Urls.cs" caret="39" fromTop="1" />
+      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="2529" fromTop="14" />
+      <File id="FA9B839A-97BB-4D5C-AA09-784253C868A1/f:Program.cs" caret="2671" fromTop="15" />
+      <File id="5F1D6F3F-9D8D-4C90-9133-5205B0B0865D/f:UrlBuilding.cs" caret="350" fromTop="18" />
+      <File id="5F1D6F3F-9D8D-4C90-9133-5205B0B0865D/f:UrlBuilding.cs" caret="286" fromTop="15" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

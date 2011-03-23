@@ -23,9 +23,9 @@ namespace klinger.Client
         static ChannelAdapter _input;
         static HttpServer _server;
         readonly int _port;
-        HealthRepository _repo;
+        EnvironmentValidatorRepository _repo;
 
-        public InProcessKlingerWebServer(int port, HealthRepository repo)
+        public InProcessKlingerWebServer(int port, EnvironmentValidatorRepository repo)
         {
             _port = port;
             _repo = repo;

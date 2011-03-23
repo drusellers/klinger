@@ -20,9 +20,9 @@ namespace klinger.Config
     public class BackingConfigurationObject :
         KlingerConfiguration
     {
-        HealthRepository _repository;
+        EnvironmentValidatorRepository _repository;
 
-        public BackingConfigurationObject(HealthRepository repository)
+        public BackingConfigurationObject(EnvironmentValidatorRepository repository)
         {
             _repository = repository;
         }
