@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>klinger</RootNamespace>
     <AssemblyName>klinger</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -42,8 +42,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\magnum\Magnum.dll</HintPath>
     </Reference>
-    <Reference Include="Spark">
-      <HintPath>..\lib\spark\Spark.dll</HintPath>
+    <Reference Include="Spark, Version=1.6.0.0, Culture=neutral, PublicKeyToken=7f8549eed921a12c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Spark.1.6\lib\NET40\Spark.dll</HintPath>
     </Reference>
     <Reference Include="Stact">
       <HintPath>..\lib\stact\Stact.dll</HintPath>
@@ -53,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\InProcessKlingerScheduleServer.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Client\InProcessKlingerWebServer.cs" />
     <Compile Include="Ballot.cs" />
     <Compile Include="Urls.cs" />
+    <Compile Include="Validators\LocalServiceValidator.cs" />
     <Compile Include="VoteBundle.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,7 +87,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="images\fatal.png" />
     <EmbeddedResource Include="images\healthy.png" />

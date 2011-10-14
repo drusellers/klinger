@@ -14,6 +14,7 @@ namespace klinger
 {
     public interface EnvironmentValidator
     {
+        string SystemName { get; }
         void Vote(Ballot ballot);
     }
 }

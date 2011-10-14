@@ -20,15 +20,19 @@ namespace klinger.Client
     {
         readonly List<EnvironmentValidator> _validators = new List<EnvironmentValidator>();
 
+        public void AddCheck(EnvironmentValidator validator)
+        {
+            _validators.Add(validator);
+        }
 
         public void AddCheck<THealthCheck>() where THealthCheck : EnvironmentValidator, new()
         {
-            _validators.Add(new THealthCheck());
+            AddCheck(new THealthCheck());
         }
 
         public void AddCheck(Type t)
         {
-            _validators.Add(FastActivator.Create(t) as EnvironmentValidator);
+            AddCheck(FastActivator.Create(t) as EnvironmentValidator);
         }
 
         public ValidationVote[] TakeTemperature()
@@ -36,7 +40,7 @@ namespace klinger.Client
             var votes = new List<ValidationVote>();
             foreach (var environmentValidator in _validators)
             {
-                var vote = new ValidationVote(environmentValidator.GetType().Name);
+                var vote = new ValidationVote(environmentValidator.SystemName);
                 environmentValidator.Vote(vote);
                 votes.Add(vote);
             }

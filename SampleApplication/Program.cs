@@ -13,10 +13,10 @@
 namespace SampleApplication
 {
     using System;
-    using System.ServiceProcess;
     using klinger;
     using klinger.Config;
     using Magnum.Extensions;
+    using klinger.Validators;
 
     internal class Program
     {
@@ -30,21 +30,23 @@ namespace SampleApplication
                 //or
                 //cfg.RegisterValidator<MyCheck>();
                 //cfg.RegisterValidator<CheckTwo>();
+                cfg.RegisterValidator(new LocalServiceValidator("MSMQ"));
 
+                
                 //loads the timer based scheduler
                 cfg.ScheduleValidations(1.Seconds(), 1.Seconds());
 
                 //loads the web server in process
                 cfg.HostWebServerInProcess(8008); // this is the web server
 
-                //action to take when one of the votes is a warning
+                //custom action to take when one of the votes is a warning
                 cfg.OnWarning(allVotes =>
                 {
                     Console.WriteLine("warning");
                 });
 
 
-                //action to take when one of the votes is a fatal
+                //custom action to take when one of the votes is a fatal
                 cfg.OnFatal(allVotes =>
                 {
                     Console.WriteLine("fatal");
@@ -52,6 +54,7 @@ namespace SampleApplication
 
                 //Coming Soon
                 //cfg.ForwardTo(new Uri("http://localhost:8008/klinger/report"));
+                //cfg.RegisterValidatorsInContainer(container);
             });
 
             Console.ReadKey(true);
@@ -61,42 +64,16 @@ namespace SampleApplication
     public class MyCheck :
         EnvironmentValidator
     {
+        public string SystemName
+        {
+            get { return "hi"; }
+        }
+
         public void Vote(Ballot ballot)
         {
             if (DateTime.Now.Second%2 == 0)
             {
-                ballot.Fatal("ERROR");
-                return;
-            }
-
-            ballot.Healthy();
-        }
-    }
-
-    public class LocalServiceValidator : 
-        EnvironmentValidator
-    {
-        public void Vote(Ballot ballot)
-        {
-            using(var c = new ServiceController("MSMQ"))
-            {
-                if(c.Status != ServiceControllerStatus.Running)
-                {
-                    ballot.Fatal("MSMQ is not running.");
-                    return;
-                }
-                ballot.Healthy();
-            }
-        }
-    }
-    public class CheckTwo :
-        EnvironmentValidator
-    {
-        public void Vote(Ballot ballot)
-        {
-            if (DateTime.Now.Second%3 == 0)
-            {
-                ballot.Fatal("ERROR");
+                ballot.Fatal("ERROR: This should error every other second");
                 return;
             }
 

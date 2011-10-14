@@ -17,6 +17,7 @@ namespace klinger.Config
     public interface KlingerConfiguration
     {
         void RegisterValidator<TValidator>() where TValidator : EnvironmentValidator, new();
+        void RegisterValidator(EnvironmentValidator validator);
         void HostWebServerInProcess(int port);
         void ScheduleValidations(TimeSpan interval);
         void ScheduleValidations(TimeSpan delayInterval, TimeSpan interval);

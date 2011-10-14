@@ -1,10 +1,9 @@
-namespace klinger
+namespace klinger.Server
 {
     using System;
 
     public class Urls
     {
-
         //http://machine-name:8008/
         public static Uri Root(string host, int port)
         {

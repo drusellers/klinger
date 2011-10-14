@@ -42,6 +42,11 @@ namespace klinger.Config
             _repository.AddCheck<TValidator>();
         }
 
+        public void RegisterValidator(EnvironmentValidator validator)
+        {
+            _repository.AddCheck(validator);
+        }
+
         public void RegisterValidator(Type t)
         {
             _repository.AddCheck(t);
