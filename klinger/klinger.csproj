@@ -63,6 +63,7 @@
     <Compile Include="Server\HealthVoteRepository.cs" />
     <Compile Include="Server\InMemoryHealthVoteRepository.cs" />
     <Compile Include="Server\OutOfProcessKlingerWebServer.cs" />
+    <Compile Include="Server\Urls.cs" />
     <Compile Include="StactStuff\CssConnectionHandler.cs" />
     <Compile Include="StactStuff\ImageConnectionHandler.cs" />
     <Compile Include="StactStuff\ResponseContextExtensions.cs" />
@@ -78,7 +79,6 @@
     <Compile Include="Client\ValidationVote.cs" />
     <Compile Include="Client\InProcessKlingerWebServer.cs" />
     <Compile Include="Ballot.cs" />
-    <Compile Include="Urls.cs" />
     <Compile Include="Validators\LocalServiceValidator.cs" />
     <Compile Include="VoteBundle.cs" />
   </ItemGroup>

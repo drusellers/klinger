@@ -54,7 +54,7 @@
   <ItemGroup>
     <ProjectReference Include="..\klinger\klinger.csproj">
       <Project>{A88DC1FA-AF6D-4D61-B8FC-46CA56E276A4}</Project>
-      <Name>hawkeye</Name>
+      <Name>klinger</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
