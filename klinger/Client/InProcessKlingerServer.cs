@@ -14,30 +14,27 @@ namespace klinger.Client
 {
     using System;
     using System.Linq;
-    using Magnum.Extensions;
+    using Server;
     using Stact;
-    using Stact.Internal;
+    using Scheduler = Server.Scheduler;
 
-    public class InProcessKlingerScheduleServer
+    public class InProcessKlingerServer
     {
-        readonly Scheduler _scheduler;
-        readonly Fiber _fiber;
-        readonly EnvironmentValidatorRepository _repository;
         readonly TimeSpan _schedulerDelay;
         readonly TimeSpan _schedulerInterval;
-        public UntypedChannel EventChannel;
+        readonly Fiber _fiber;
 
-        public InProcessKlingerScheduleServer(EnvironmentValidatorRepository repository, TimeSpan schedulerDelay,
+        public InProcessKlingerServer(TimeSpan schedulerDelay,
                                               TimeSpan schedulerInterval)
         {
-            EventChannel = new ChannelAdapter();
-
-            _fiber = new PoolFiber();
-            _scheduler = new TimerScheduler(_fiber);
-            _repository = repository;
             _schedulerDelay = schedulerDelay;
             _schedulerInterval = schedulerInterval;
+
+            _fiber = new PoolFiber();
         }
+
+        public UntypedChannel EventChannel;
+        ActorInstance _scheduleActor;
 
         public void OnFatal(Action<VoteBundle> action)
         {
@@ -63,17 +60,28 @@ namespace klinger.Client
 
         public void Start()
         {
-            _scheduler.Schedule(_schedulerDelay, _schedulerInterval, _fiber, () =>
+            var ar = ActorRegistryFactory.New(cfg =>
             {
-                var x = _repository.TakeTemperature();
-
-                EventChannel.Send(new VoteBundle(x));
+                cfg.HandleOnPoolFiber();
             });
+            
+
+            var repoFactory = ActorFactory.Create(inbox => new EnvironmentValidatorRepository(inbox));
+            var repo = repoFactory.GetActor();
+
+            var schedulerFactory = ActorFactory.Create((fiber,inbox) => new CentralScheduler(inbox, repo, fiber));
+
+            _scheduleActor = schedulerFactory.GetActor();
+            _scheduleActor.Send(new StartIt()
+                {
+                    Interval = _schedulerInterval,
+                    Delay = _schedulerDelay
+                });
         }
 
         public void Stop()
         {
-            _scheduler.Stop(5.Seconds());
+            _scheduleActor.Send<StopIt>();
         }
     }
 }

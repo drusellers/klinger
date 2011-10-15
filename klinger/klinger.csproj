@@ -57,12 +57,14 @@
     <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\InProcessKlingerScheduleServer.cs" />
+    <Compile Include="Client\InProcessKlingerServer.cs" />
     <Compile Include="Client\KlingerInformation.cs" />
     <Compile Include="Client\Vote.cs" />
     <Compile Include="Server\HealthVoteRepository.cs" />
     <Compile Include="Server\InMemoryHealthVoteRepository.cs" />
     <Compile Include="Server\OutOfProcessKlingerWebServer.cs" />
+    <Compile Include="Server\Scheduler.cs" />
+    <Compile Include="Server\TakeTemperature.cs" />
     <Compile Include="Server\Urls.cs" />
     <Compile Include="StactStuff\CssConnectionHandler.cs" />
     <Compile Include="StactStuff\ImageConnectionHandler.cs" />

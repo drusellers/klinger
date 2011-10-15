@@ -18,12 +18,12 @@ namespace klinger.Config
     public static class KlingerConfigurator
     {
         static InProcessKlingerWebServer _webServer;
-        static InProcessKlingerScheduleServer _scheduleServer;
+        static InProcessKlingerServer _server;
         static EnvironmentValidatorRepository _repository;
 
         public static void Configure(Action<KlingerConfiguration> action)
         {
-            _repository = new EnvironmentValidatorRepository();
+            _repository = new EnvironmentValidatorRepository(null);
 
             var b = new BackingConfigurationObject(_repository);
             action(b);
@@ -36,11 +36,11 @@ namespace klinger.Config
 
             if (b.ShouldRunScheduler)
             {
-                _scheduleServer = new InProcessKlingerScheduleServer(_repository, b.SchedulerDelay, b.SchedulerInterval);
+                _server = new InProcessKlingerServer(b.SchedulerDelay, b.SchedulerInterval);
                 
-                _scheduleServer.OnFatal(b.ErrorAction);
-                _scheduleServer.OnWarning(b.WarningAction);
-                _scheduleServer.Start();
+                _server.OnFatal(b.ErrorAction);
+                _server.OnWarning(b.WarningAction);
+                _server.Start();
             }
 
         }

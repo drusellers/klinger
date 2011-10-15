@@ -15,10 +15,17 @@ namespace klinger.Client
     using System;
     using System.Collections.Generic;
     using Magnum.Reflection;
+    using Stact;
 
-    public class EnvironmentValidatorRepository
+    public class EnvironmentValidatorRepository : Actor
     {
+        readonly Inbox _inbox;
         readonly List<EnvironmentValidator> _validators = new List<EnvironmentValidator>();
+
+        public EnvironmentValidatorRepository(Inbox inbox)
+        {
+            _inbox = inbox;
+        }
 
         public void AddCheck(EnvironmentValidator validator)
         {
