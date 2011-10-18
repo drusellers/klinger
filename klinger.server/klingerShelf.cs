@@ -12,7 +12,7 @@
 // specific language governing permissions and limitations under the License.
 namespace klinger.server.shelf
 {
-    using klinger.Client;
+    using Server;
     using Topshelf.Configuration.Dsl;
     using Topshelf.Shelving;
 

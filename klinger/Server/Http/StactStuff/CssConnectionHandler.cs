@@ -53,7 +53,7 @@ namespace klinger.StactStuff
                     string localPath = context.Request.Url.LocalPath;
                     string cssName = localPath.Split('/').Last();
                     context.Response.ContentType = "text/css";
-                    using (Stream str = GetType().Assembly.GetManifestResourceStream("klinger.styles." + cssName))
+                    using (Stream str = GetType().Assembly.GetManifestResourceStream("klinger.Server.Http.styles." + cssName))
                     {
                         byte[] buff = str.ReadToEnd();
                         context.Response.OutputStream.Write(buff, 0, buff.Length);

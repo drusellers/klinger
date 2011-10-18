@@ -1,4 +1,4 @@
-﻿namespace klinger.Client
+﻿namespace klinger
 {
     using System.Diagnostics;
 

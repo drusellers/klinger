@@ -10,13 +10,11 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
-namespace klinger.Client
+namespace klinger.Server
 {
     using System;
     using System.Linq;
-    using Server;
     using Stact;
-    using Scheduler = Server.Scheduler;
 
     public class InProcessKlingerServer
     {
@@ -35,6 +33,7 @@ namespace klinger.Client
 
         public UntypedChannel EventChannel;
         ActorInstance _scheduleActor;
+        ActorInstance _repository;
 
         public void OnFatal(Action<VoteBundle> action)
         {
@@ -60,18 +59,18 @@ namespace klinger.Client
 
         public void Start()
         {
-            var ar = ActorRegistryFactory.New(cfg =>
-            {
-                cfg.HandleOnPoolFiber();
-            });
-            
-
             var repoFactory = ActorFactory.Create(inbox => new EnvironmentValidatorRepository(inbox));
-            var repo = repoFactory.GetActor();
+            _repository = repoFactory.GetActor();
 
-            var schedulerFactory = ActorFactory.Create((fiber,inbox) => new CentralScheduler(inbox, repo, fiber));
-
+            var schedulerFactory = ActorFactory.Create((fiber,inbox) => new CentralScheduler(inbox, _repository, fiber));
             _scheduleActor = schedulerFactory.GetActor();
+
+
+
+
+
+
+
             _scheduleActor.Send(new StartIt()
                 {
                     Interval = _schedulerInterval,
@@ -82,6 +81,9 @@ namespace klinger.Client
         public void Stop()
         {
             _scheduleActor.Send<StopIt>();
+            _scheduleActor.Exit();
+
+            _repository.Exit();
         }
     }
 }

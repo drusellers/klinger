@@ -45,6 +45,7 @@ namespace klinger.Server
 
         Consumer<StartIt> HandleStart(StartIt message)
         {
+            //func<t, action<t>>
             return msg => _scheduler.Schedule(msg.Delay, msg.Interval, _fiber, () =>
             {
                 _repository.Send<TakeTemperature>();
@@ -53,9 +54,11 @@ namespace klinger.Server
 
         Consumer<StopIt> HandleStop(StopIt message)
         {
+            //func<t, action<t>>
+
             return msg =>
             {
-            _scheduler.Stop(5.Seconds());
+                _scheduler.Stop(5.Seconds());
             };
         }
     }

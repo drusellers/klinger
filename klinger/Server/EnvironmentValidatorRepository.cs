@@ -10,21 +10,33 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
-namespace klinger.Client
+namespace klinger.Server
 {
     using System;
     using System.Collections.Generic;
     using Magnum.Reflection;
+    using Messages;
     using Stact;
 
     public class EnvironmentValidatorRepository : Actor
     {
-        readonly Inbox _inbox;
         readonly List<EnvironmentValidator> _validators = new List<EnvironmentValidator>();
 
         public EnvironmentValidatorRepository(Inbox inbox)
         {
-            _inbox = inbox;
+            inbox.Loop(loop=>
+            {
+                loop.Receive<TakeTemperature>(HandleTakeTemperature);
+            });
+        }
+
+        Consumer<TakeTemperature> HandleTakeTemperature(TakeTemperature message)
+        {
+            return msg =>
+            {
+                var result = new TemperatureReading() {Votes = TakeTemperature()};
+                //send it;
+            };
         }
 
         public void AddCheck(EnvironmentValidator validator)

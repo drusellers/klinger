@@ -53,7 +53,7 @@ namespace klinger.StactStuff
                     string localPath = context.Request.Url.LocalPath;
                     string imageName = localPath.Split('/').Last();
                     context.Response.ContentType = "image/png";
-                    using (Stream str = GetType().Assembly.GetManifestResourceStream("klinger.images." + imageName))
+                    using (Stream str = GetType().Assembly.GetManifestResourceStream("klinger.Server.Http.images." + imageName))
                     {
                         byte[] buff = str.ReadToEnd();
                         context.Response.OutputStream.Write(buff, 0, buff.Length);

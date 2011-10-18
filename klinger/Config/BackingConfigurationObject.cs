@@ -13,9 +13,10 @@
 namespace klinger.Config
 {
     using System;
-    using Client;
     using Magnum.Extensions;
     using Magnum.TypeScanning;
+    using Server;
+    using Server.Messages;
 
     public class BackingConfigurationObject :
         KlingerConfiguration

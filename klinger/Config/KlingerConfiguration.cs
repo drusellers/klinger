@@ -13,6 +13,7 @@
 namespace klinger.Config
 {
     using System;
+    using Server.Messages;
 
     public interface KlingerConfiguration
     {

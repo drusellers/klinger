@@ -13,7 +13,7 @@
 namespace klinger.Config
 {
     using System;
-    using Client;
+    using Server;
 
     public static class KlingerConfigurator
     {

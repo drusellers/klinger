@@ -1,6 +1,7 @@
 ﻿namespace klinger.Server
 {
     using System;
+    using Messages;
 
     public class InMemoryHealthVoteRepository :
         HealthVoteRepository

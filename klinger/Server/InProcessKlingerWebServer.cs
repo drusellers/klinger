@@ -10,13 +10,13 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
-namespace klinger.Client
+namespace klinger.Server
 {
     using System;
-    using Stact.Internal;
+    using Http;
+    using Http.StactStuff;
     using Stact.ServerFramework;
     using Stact;
-    using StactStuff;
 
     public class InProcessKlingerWebServer
     {
