@@ -1,6 +1,6 @@
 namespace klinger.Server
 {
-    public class TakeTemperature
+    public interface TakeTemperature
     {
     }
 }

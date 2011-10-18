@@ -68,11 +68,6 @@ namespace klinger.Server
             _scheduleActor = schedulerFactory.GetActor();
 
 
-
-
-
-
-
             _scheduleActor.Send(new StartIt()
                 {
                     Interval = _schedulerInterval,

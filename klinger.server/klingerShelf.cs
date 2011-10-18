@@ -21,8 +21,7 @@ namespace klinger.server.shelf
     {
         public void InitializeHostedService(IServiceConfigurator<InProcessKlingerWebServer> cfg)
         {
-            var repo = new EnvironmentValidatorRepository(null);
-            cfg.HowToBuildService(name => new InProcessKlingerWebServer(8008,repo));
+            cfg.HowToBuildService(name => new InProcessKlingerWebServer(8008,null));
             cfg.WhenStarted(s => s.Start());
             cfg.WhenStopped(s => s.Stop());
         }

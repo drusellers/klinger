@@ -21,7 +21,7 @@ namespace klinger.Server.Http
     {
         readonly StatusChannel _statusChannel;
 
-        public StatusConnectionHandler(EnvironmentValidatorRepository repo) :
+        public StatusConnectionHandler(ActorInstance repo) :
             base("^/status", "GET")
         {
             _statusChannel = new StatusChannel(repo);
@@ -37,9 +37,9 @@ namespace klinger.Server.Http
             Channel<ConnectionContext>
         {
             readonly Fiber _fiber;
-            readonly EnvironmentValidatorRepository _repo;
+            readonly ActorInstance _repo;
 
-            public StatusChannel(EnvironmentValidatorRepository repo)
+            public StatusChannel(ActorInstance repo)
             {
                 _repo = repo;
                 _fiber = new PoolFiber();

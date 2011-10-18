@@ -60,6 +60,7 @@
     <Compile Include="KlingerServer.cs" />
     <Compile Include="Server\InProcessKlingerServer.cs" />
     <Compile Include="KlingerInformation.cs" />
+    <Compile Include="Server\Messages\AddValidator.cs" />
     <Compile Include="Server\Messages\TemperatureReading.cs" />
     <Compile Include="Server\Vote.cs" />
     <Compile Include="Server\HealthReadingCache.cs" />

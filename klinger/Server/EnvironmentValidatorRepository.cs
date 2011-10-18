@@ -26,8 +26,17 @@ namespace klinger.Server
         {
             inbox.Loop(loop=>
             {
-                loop.Receive<TakeTemperature>(HandleTakeTemperature);
+                loop.Receive<TakeTemperature>(HandleTakeTemperature).Continue();
+                loop.Receive<AddValidator>(HandleValidator).Continue();
             });
+        }
+
+        Consumer<AddValidator> HandleValidator(AddValidator message)
+        {
+            return msg =>
+            {
+                _validators.Add(msg.Validator);
+            };
         }
 
         Consumer<TakeTemperature> HandleTakeTemperature(TakeTemperature message)
@@ -37,21 +46,6 @@ namespace klinger.Server
                 var result = new TemperatureReading() {Votes = TakeTemperature()};
                 //send it;
             };
-        }
-
-        public void AddCheck(EnvironmentValidator validator)
-        {
-            _validators.Add(validator);
-        }
-
-        public void AddCheck<THealthCheck>() where THealthCheck : EnvironmentValidator, new()
-        {
-            AddCheck(new THealthCheck());
-        }
-
-        public void AddCheck(Type t)
-        {
-            AddCheck(FastActivator.Create(t) as EnvironmentValidator);
         }
 
         public ValidationVote[] TakeTemperature()

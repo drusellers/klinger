@@ -10,6 +10,9 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
+
+using Stact;
+
 namespace klinger
 {
     using System;
@@ -19,11 +22,12 @@ namespace klinger
     {
         static InProcessKlingerWebServer _webServer;
         static InProcessKlingerServer _server;
-        static EnvironmentValidatorRepository _repository;
+        static ActorInstance _repository;
 
         public static KlingerServer BuildAndStart(Action<KlingerConfiguration> action)
         {
-            _repository = new EnvironmentValidatorRepository(null);
+            var repoFac = ActorFactory.Create(inbox => new EnvironmentValidatorRepository(inbox));
+            _repository = repoFac.GetActor();
 
             var b = new BackingConfigurationObject(_repository);
             action(b);

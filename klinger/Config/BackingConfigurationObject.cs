@@ -10,6 +10,11 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
+
+using Magnum.Reflection;
+using Magnum.Validation.Impl;
+using Stact;
+
 namespace klinger
 {
     using System;
@@ -21,9 +26,9 @@ namespace klinger
     public class BackingConfigurationObject :
         KlingerConfiguration
     {
-        EnvironmentValidatorRepository _repository;
+        ActorInstance _repository;
 
-        public BackingConfigurationObject(EnvironmentValidatorRepository repository)
+        public BackingConfigurationObject(ActorInstance repository)
         {
             _repository = repository;
         }
@@ -35,22 +40,26 @@ namespace klinger
                 cfg.AddAllTypesOf<EnvironmentValidator>();
                 cfg.AssemblyContainingType<T>();
             });
-            types.Each(_repository.AddCheck);
+            types.Each(t=>RegisterValidator(t));
+
         }
 
         public void RegisterValidator<TValidator>() where TValidator : EnvironmentValidator, new()
         {
-            _repository.AddCheck<TValidator>();
+            RegisterValidator(new TValidator());
         }
 
         public void RegisterValidator(EnvironmentValidator validator)
         {
-            _repository.AddCheck(validator);
+            _repository.Send(new AddValidator
+                             {
+                                 Validator = validator
+                             });
         }
 
         public void RegisterValidator(Type t)
         {
-            _repository.AddCheck(t);
+            RegisterValidator(FastActivator.Create(t) as EnvironmentValidator);
         }
 
         public void HostWebServerInProcess(int port)

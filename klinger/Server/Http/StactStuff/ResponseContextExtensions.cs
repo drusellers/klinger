@@ -10,6 +10,9 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
+
+using Stact;
+
 namespace klinger.Server.Http.StactStuff
 {
     using klinger.Server;
@@ -19,9 +22,9 @@ namespace klinger.Server.Http.StactStuff
     {
         static readonly SparkRender _render = new SparkRender();
 
-        public static void RenderSparkView(this ResponseContext cxt, EnvironmentValidatorRepository repo, string template)
+        public static void RenderSparkView(this ResponseContext cxt, ActorInstance repo, string template)
         {
-            string output = _render.Render("status.html", repo.TakeTemperature(), new KlingerInformation());
+            string output = _render.Render("status.html", null, new KlingerInformation());
             cxt.WriteHtml(output);
         }
     }
