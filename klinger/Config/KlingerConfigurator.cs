@@ -10,7 +10,7 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
-namespace klinger.Config
+namespace klinger
 {
     using System;
     using Server;
@@ -21,7 +21,7 @@ namespace klinger.Config
         static InProcessKlingerServer _server;
         static EnvironmentValidatorRepository _repository;
 
-        public static void Configure(Action<KlingerConfiguration> action)
+        public static KlingerServer BuildAndStart(Action<KlingerConfiguration> action)
         {
             _repository = new EnvironmentValidatorRepository(null);
 
@@ -43,6 +43,7 @@ namespace klinger.Config
                 _server.Start();
             }
 
+            return _server;
         }
     }
 }

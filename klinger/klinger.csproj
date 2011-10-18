@@ -57,6 +57,7 @@
     <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KlingerServer.cs" />
     <Compile Include="Server\InProcessKlingerServer.cs" />
     <Compile Include="KlingerInformation.cs" />
     <Compile Include="Server\Messages\TemperatureReading.cs" />

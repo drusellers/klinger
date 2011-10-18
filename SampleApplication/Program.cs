@@ -14,15 +14,15 @@ namespace SampleApplication
 {
     using System;
     using klinger;
-    using klinger.Config;
-    using Magnum.Extensions;
     using klinger.Validators;
+    using Magnum.Extensions;
 
     internal class Program
     {
         static void Main(string[] args)
         {
-            KlingerConfigurator.Configure(cfg =>
+            
+            var server = KlingerConfigurator.BuildAndStart(cfg =>
             {
                 //now with type scanning
                 cfg.RegisterAllValidatorsInAssembly<MyCheck>();
@@ -58,6 +58,8 @@ namespace SampleApplication
             });
 
             Console.ReadKey(true);
+
+            server.Stop();
         }
     }
 

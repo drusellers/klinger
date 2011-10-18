@@ -14,9 +14,11 @@ namespace klinger.Server
 {
     using System;
     using System.Linq;
+    using Messages;
     using Stact;
 
-    public class InProcessKlingerServer
+    public class InProcessKlingerServer :
+        KlingerServer
     {
         readonly TimeSpan _schedulerDelay;
         readonly TimeSpan _schedulerInterval;

@@ -14,7 +14,7 @@ namespace klinger.Server.Http
 {
     using Stact.ServerFramework;
     using Stact;
-    using klinger.StactStuff;
+    using StactStuff;
 
     public class StatusConnectionHandler :
         PatternMatchConnectionHandler
