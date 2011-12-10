@@ -37,7 +37,7 @@ namespace SampleApplication
                 cfg.ScheduleValidations(1.Seconds(), 1.Seconds());
 
                 //loads the web server in process
-                cfg.HostWebServerInProcess(8008); // this is the web server
+                //cfg.HostWebServerInProcess(8008); // this is the web server
 
                 //custom action to take when one of the votes is a warning
                 cfg.OnWarning(allVotes =>

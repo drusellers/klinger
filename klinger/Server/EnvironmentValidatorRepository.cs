@@ -12,18 +12,18 @@
 // specific language governing permissions and limitations under the License.
 namespace klinger.Server
 {
-    using System;
     using System.Collections.Generic;
-    using Magnum.Reflection;
     using Messages;
     using Stact;
 
     public class EnvironmentValidatorRepository : Actor
     {
+        readonly ActorInstance _healthRepo;
         readonly List<EnvironmentValidator> _validators = new List<EnvironmentValidator>();
 
-        public EnvironmentValidatorRepository(Inbox inbox)
+        public EnvironmentValidatorRepository(Inbox inbox, ActorInstance healthRepo)
         {
+            _healthRepo = healthRepo;
             inbox.Loop(loop=>
             {
                 loop.Receive<TakeTemperature>(HandleTakeTemperature).Continue();
@@ -44,7 +44,8 @@ namespace klinger.Server
             return msg =>
             {
                 var result = new TemperatureReading() {Votes = TakeTemperature()};
-                //send it;
+                //send it to the cache;
+                _healthRepo.Send(result);
             };
         }
 

@@ -1,10 +1,11 @@
 ﻿namespace klinger.Server
 {
+    using System.Collections.Generic;
     using Messages;
 
     public interface HealthVoteRepository
     {
-        void Save(string name, VoteBundle votes);
-        void All();
+        void Save(VoteBundle votes);
+        IEnumerable<Vote> All();
     }
 }

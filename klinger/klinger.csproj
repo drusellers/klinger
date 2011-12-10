@@ -63,7 +63,6 @@
     <Compile Include="Server\Messages\AddValidator.cs" />
     <Compile Include="Server\Messages\TemperatureReading.cs" />
     <Compile Include="Server\Vote.cs" />
-    <Compile Include="Server\HealthReadingCache.cs" />
     <Compile Include="Server\HealthVoteRepository.cs" />
     <Compile Include="Server\InMemoryHealthVoteRepository.cs" />
     <Compile Include="Server\OutOfProcessKlingerWebServer.cs" />

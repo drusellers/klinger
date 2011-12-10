@@ -22,20 +22,20 @@ namespace klinger.Server
     {
         readonly TimeSpan _schedulerDelay;
         readonly TimeSpan _schedulerInterval;
+        readonly ActorInstance _validatorRepository;
         readonly Fiber _fiber;
 
-        public InProcessKlingerServer(TimeSpan schedulerDelay,
-                                              TimeSpan schedulerInterval)
+        public InProcessKlingerServer(TimeSpan schedulerDelay, TimeSpan schedulerInterval, ActorInstance validatorRepository)
         {
             _schedulerDelay = schedulerDelay;
             _schedulerInterval = schedulerInterval;
+            _validatorRepository = validatorRepository;
 
             _fiber = new PoolFiber();
         }
 
         public UntypedChannel EventChannel;
         ActorInstance _scheduleActor;
-        ActorInstance _repository;
 
         public void OnFatal(Action<VoteBundle> action)
         {
@@ -61,10 +61,7 @@ namespace klinger.Server
 
         public void Start()
         {
-            var repoFactory = ActorFactory.Create(inbox => new EnvironmentValidatorRepository(inbox));
-            _repository = repoFactory.GetActor();
-
-            var schedulerFactory = ActorFactory.Create((fiber,inbox) => new CentralScheduler(inbox, _repository, fiber));
+            var schedulerFactory = ActorFactory.Create((fiber,inbox) => new CentralScheduler(inbox, _validatorRepository, fiber));
             _scheduleActor = schedulerFactory.GetActor();
 
 
@@ -80,7 +77,7 @@ namespace klinger.Server
             _scheduleActor.Send<StopIt>();
             _scheduleActor.Exit();
 
-            _repository.Exit();
+            _validatorRepository.Exit();
         }
     }
 }

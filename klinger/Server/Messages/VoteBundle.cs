@@ -12,7 +12,7 @@
 // specific language governing permissions and limitations under the License.
 namespace klinger.Server.Messages
 {
-    using klinger.Server;
+    using Server;
 
     public class VoteBundle
     {

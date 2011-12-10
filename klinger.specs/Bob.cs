@@ -10,7 +10,8 @@ namespace klinger.specs
     {
         public void should_call_vote_on_validators()
         {
-            var af = ActorFactory.Create(inbox => new EnvironmentValidatorRepository(inbox));
+            ActorInstance healthRepo = null;
+            var af = ActorFactory.Create(inbox => new EnvironmentValidatorRepository(inbox, healthRepo));
 
             var r = af.GetActor();
 
